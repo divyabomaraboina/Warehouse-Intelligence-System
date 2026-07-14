@@ -78,6 +78,18 @@ st.markdown(
         padding-bottom: 11rem;
     }}
 
+    section.main > div {{
+        padding-bottom: 180px !important;
+    }}
+
+    [data-testid="stMainBlockContainer"] {{
+        padding-bottom: 180px !important;
+    }}
+
+    [data-testid="stChatInput"] {{
+        bottom: 20px !important;
+    }}
+
     #MainMenu, footer, header {{
         visibility: hidden;
     }}
@@ -434,6 +446,8 @@ st.markdown(
 )
 
 
+st.caption("Build: 2026-07-14-v3")
+
 # ─────────────────────────────────────────────────────────────
 # Data
 # ─────────────────────────────────────────────────────────────
@@ -456,7 +470,6 @@ def money(value: float, compact: bool = True) -> str:
     return f"${value:,.0f}"
 
 
-@st.cache_data(show_spinner=False)
 def load_data() -> dict[str, Any]:
     total = get_total_sales()
     suppliers = get_top_suppliers(10)
@@ -464,6 +477,10 @@ def load_data() -> dict[str, Any]:
     items = get_items_ranked()
     metrics = read_json("models/metrics.json")
     experiment = read_json("models/ab_results.json")
+
+    exp_path = PROJECT_ROOT / "models" / "ab_results.json"
+    st.write("AB file exists:", exp_path.exists())
+    st.write("AB values:", experiment)
 
     summer_opportunity = float(
         experiment.get(
