@@ -1,13 +1,19 @@
-import duckdb
-from pathlib import Path
 import glob
 import os
+from pathlib import Path
 
-os.chdir(Path(__file__).parent.parent)
+import duckdb
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+os.chdir(PROJECT_ROOT)
 
 # ── Gold parquet path ─────────────────────────────────────────────
-train_files = glob.glob("data/processed/featured_train_*.parquet")
-TRAIN_PATH  = max(train_files)
+train_files = glob.glob(str(PROJECT_ROOT / "data" / "processed" / "featured_train_*.parquet"))
+
+if not train_files:
+    raise FileNotFoundError("No featured_train_*.parquet files found in data/processed.")
+
+TRAIN_PATH = max(train_files)
 print(f"Using: {TRAIN_PATH}")
 
 
