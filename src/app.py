@@ -75,7 +75,7 @@ st.markdown(
     .block-container {{
         max-width: 1180px;
         padding-top: 1.4rem;
-        padding-bottom: 6rem;
+        padding-bottom: 11rem;
     }}
 
     #MainMenu, footer, header {{
@@ -190,22 +190,33 @@ st.markdown(
         gap:.6rem;
         background:rgba(255,255,255,.74);
         border:1px solid {BORDER};
-        border-radius:18px;
+        border-radius:999px;
         padding:.42rem;
         width:fit-content;
         box-shadow:0 6px 20px rgba(70,62,55,.06);
     }}
 
     div[role="radiogroup"] label {{
-        padding:.55rem .95rem !important;
-        border-radius:13px !important;
+        padding:.62rem 1rem !important;
+        border-radius:999px !important;
         transition:all .22s ease;
         font-weight:700;
+        border:1px solid transparent;
     }}
 
     div[role="radiogroup"] label:hover {{
         transform:translateY(-2px);
         background:{LIME_SOFT};
+    }}
+
+    div[role="radiogroup"] input {{
+        display:none;
+    }}
+
+    div[role="radiogroup"] label:has(input:checked) {{
+        background:{TEAL_DARK};
+        color:{WHITE};
+        border-color:{TEAL_DARK};
     }}
 
     .welcome-card {{
@@ -454,6 +465,13 @@ def load_data() -> dict[str, Any]:
     metrics = read_json("models/metrics.json")
     experiment = read_json("models/ab_results.json")
 
+    summer_opportunity = float(
+        experiment.get(
+            "annual_opportunity",
+            experiment.get("annual_revenue_opportunity", 0),
+        )
+    )
+
     warehouse_total = float(total.iloc[0]["total_warehouse_sales"])
     retail_total = float(total.iloc[0]["total_retail_sales"])
     top = suppliers.iloc[0]
@@ -471,7 +489,7 @@ def load_data() -> dict[str, Any]:
         "peak_month": int(peak["MONTH"]),
         "peak_revenue": float(peak["total_warehouse_sales"]),
         "accuracy": float(metrics.get("xgb_accuracy", 0)),
-        "summer_opportunity": float(experiment.get("annual_opportunity", 0)),
+        "summer_opportunity": summer_opportunity,
         "seasonal": experiment.get("seasonal_items", []),
     }
 
