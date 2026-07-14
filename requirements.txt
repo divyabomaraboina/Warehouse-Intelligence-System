@@ -13,3 +13,5 @@ python-dotenv
 chromadb
 sentence-transformers
 langchain
+langchain-core
+langchain-text-splitters
