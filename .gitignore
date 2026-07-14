@@ -1,0 +1,36 @@
+.env
+*.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Jupyter / editor
+.ipynb_checkpoints/
+.DS_Store
+.vscode/
+
+# Data artifacts
+data/raw/
+data/cleaned/
+data/processed/
+data/chroma_db/
+*.sqlite3
+*.db
+
+# Model / output artifacts
+models/*.json
+models/*.pkl
+models/*.bin
+models/*.pt
+models/*.onnx
+
+# Local logs / caches
+*.log
+.pytest_cache/
+.cache/

@@ -1,0 +1,10 @@
+pandas
+pyarrow
+python-dotenv
+great-expectations
+rich
+kaggle
+jupyter
+scikit-learn
+duckdb
+xgboost
