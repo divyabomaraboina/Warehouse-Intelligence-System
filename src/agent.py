@@ -1,12 +1,12 @@
+import json
 import os
 import sys
-import json
+
+import streamlit as st
+from groq import Groq
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from dotenv import load_dotenv
-load_dotenv()
-
-from groq import Groq
 from src.rag import search_knowledge, initialize_rag
 
 from src.analysis_tools import (
@@ -34,7 +34,12 @@ from src.ab_testing import (
     segmented_analysis
 )
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+api_key = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY"))
+
+if not api_key:
+    raise RuntimeError("GROQ_API_KEY is not configured.")
+
+client = Groq(api_key=api_key)
 MODEL = "llama-3.1-8b-instant"
 
 initialize_rag()

@@ -1,6 +1,7 @@
 .env
 *.env
 .env.*
+.streamlit/secrets.toml
 
 # Python
 __pycache__/
@@ -24,11 +25,19 @@ data/chroma_db/
 *.db
 
 # Model / output artifacts
+models/
 models/*.json
 models/*.pkl
 models/*.bin
 models/*.pt
 models/*.onnx
+
+# Generated images / reports
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
 
 # Local logs / caches
 *.log
