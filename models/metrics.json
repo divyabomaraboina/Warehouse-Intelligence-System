@@ -1,0 +1,7 @@
+{
+  "xgb_accuracy": 0.7673,
+  "logistic_accuracy": 0.6844,
+  "train_size": 245614,
+  "test_size": 61404,
+  "best_model": "XGBoost"
+}

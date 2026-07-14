@@ -1,0 +1,8 @@
+{
+  "schema_version": 2,
+  "fingerprint": "0e49514370633ea02547e3e9e32bb1c3fab9a5f41082183fc80e8ce17c313d4d",
+  "chunk_count": 10,
+  "updated_at_utc": "2026-07-14T20:33:06.900285+00:00",
+  "embedding_model": "all-MiniLM-L6-v2",
+  "collection": "warehouse_knowledge_v2"
+}

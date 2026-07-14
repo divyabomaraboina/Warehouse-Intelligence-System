@@ -1,0 +1,16 @@
+{
+  "p_value": 2.1574553375898927e-09,
+  "monthly_cohens_d": 2.1667869951610683,
+  "annual_opportunity": 271070.0,
+  "summer_avg": 375333.0,
+  "non_summer_avg": 307565.0,
+  "seasonal_items": [
+    "Beer",
+    "Liquor"
+  ],
+  "non_seasonal_items": [
+    "Wine",
+    "Kegs",
+    "Non-Alcohol"
+  ]
+}

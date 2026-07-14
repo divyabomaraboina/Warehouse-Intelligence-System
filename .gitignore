@@ -28,8 +28,10 @@ data/chroma_db/
 !data/processed/*.parquet
 
 # Model / output artifacts
-models/
-models/*.json
+models/*
+!models/ab_results.json
+!models/metrics.json
+!models/rag_manifest.json
 models/*.pkl
 models/*.bin
 models/*.pt
