@@ -446,8 +446,6 @@ st.markdown(
 )
 
 
-st.caption("Build: 2026-07-14-v3")
-
 # ─────────────────────────────────────────────────────────────
 # Data
 # ─────────────────────────────────────────────────────────────
@@ -477,10 +475,6 @@ def load_data() -> dict[str, Any]:
     items = get_items_ranked()
     metrics = read_json("models/metrics.json")
     experiment = read_json("models/ab_results.json")
-
-    exp_path = PROJECT_ROOT / "models" / "ab_results.json"
-    st.write("AB file exists:", exp_path.exists())
-    st.write("AB values:", experiment)
 
     summer_opportunity = float(
         experiment.get(
