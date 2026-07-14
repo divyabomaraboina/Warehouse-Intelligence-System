@@ -19,10 +19,13 @@ venv/
 # Data artifacts
 data/raw/
 data/cleaned/
-data/processed/
 data/chroma_db/
 *.sqlite3
 *.db
+
+# Keep processed parquet files needed by the app
+!data/processed/
+!data/processed/*.parquet
 
 # Model / output artifacts
 models/
