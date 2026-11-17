@@ -40,7 +40,7 @@ if not api_key:
     raise RuntimeError("GROQ_API_KEY is not configured.")
 
 client = Groq(api_key=api_key)
-MODEL = "llama-3.1-8b-instant"
+MODEL = "openai/gpt-oss-20b"
 
 initialize_rag()
 
